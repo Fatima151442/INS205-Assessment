@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima Morenikeh Matturi - INS205 Assessment</title>
+
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Main Heading */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Sections */
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        /* Email Button */
+        #send-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #send-btn:hover {
+            opacity: 0.9;
+        }
+
+        .contact {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Heading -->
+    <h1>Welcome to Fatima Morenikeh Matturi's Static Web Page</h1>
+
+    <!-- About Me Section -->
+    <section>
+        <h2>About Me</h2>
+
+        <p><strong>Full Name:</strong> Fatima Morenikeh Matturi</p>
+
+        <p><strong>Department:</strong> Computer Science</p>
+
+        <p><strong>Matriculation Number:</strong> UJ/2024/NS/0556</p>
+
+        <p><strong>Level:</strong> 200 Level</p>
+
+        <p>
+            I am a 200-level Computer Science student at the University of Jos.
+            I enjoy learning new things in technology and improving my problem-solving skills.
+            I am passionate about creativity and always eager to develop practical solutions using technology.
+        </p>
+    </section>
+
+    <!-- About the Page Section -->
+    <section>
+        <h2>About This Page</h2>
+
+        <p>
+            This static web page was created as part of the INS205 assessment.
+            It demonstrates the use of HTML and CSS in developing a simple and well-structured web application.
+        </p>
+
+        <p>
+            The page contains personal information, a description of the assessment,
+            and a functional email button for communication purposes.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Me</h2>
+
+        <p>
+            You can reach me through my University of Jos email address by clicking the button below.
+        </p>
+
+        <a
+            href="mailto:2024NS0556@unijos.edu.ng"
+            id="send-btn">
+            Send Email
+        </a>
+    </section>
+
+    <!-- Task 3 Script -->
+    <script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           CHANGE NOTHING BEYOND THIS POINT.
+        ------------------------------------------------------- */
+
+        const matric = "UJ/2024/NS/0556";
+
+        /* CHANGE NOTHING BEYOND THIS POINT */
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+</body>
+</html>
